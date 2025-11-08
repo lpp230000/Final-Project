@@ -14,7 +14,7 @@ The main challenge I'll have is trying to make the particles longer to immitate 
 ## Outcomes
 
 ### Ideal Outcomes
-
+The ideal outcome I hope for is to be able to have the particle rain take the proper shape and timing. Another ideal outcome is that the water mark is properly place while the particle rain can properly look over it
 ### Minimal Viable Outcomes
-
+the minimum viable outcome is that i get the particle rain to work with the right color however the shape might be closer to the default. I also want the particle rain to at least look like it is part of the artwork and not just it seperately
 ## Milestones
