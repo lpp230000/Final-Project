@@ -18,3 +18,4 @@ The ideal outcome I hope for is to be able to have the particle rain take the pr
 ### Minimal Viable Outcomes
 the minimum viable outcome is that i get the particle rain to work with the right color however the shape might be closer to the default. I also want the particle rain to at least look like it is part of the artwork and not just it seperately
 ## Milestones
+For the first week I want to beginning set up the water mark code while also begin designing the artwork on my digital program. The following week I want to at least have the image be done by the middle of the week. After that the goal is to start the water mark editing code and finish that by the following week. Lastly I want to spend the final 2 weeks working on the particle rain and to properly test it.
