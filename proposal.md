@@ -1,10 +1,10 @@
 # Proposal
 
-## Repository
-Here is the link to my [Final Project Repository](https://github.com/lpp230000/Final-Project).
-
 ## Title
 Waterfalls 
+
+## Repository
+Here is the link to my [Final Project Repository](https://github.com/lpp230000/Final-Project).
 
 ## Description
 The project I want to create a piece of digital artwork that uses the editing and digital rain lessons. For this artwork I want it to be a waterfall location with rain and surrounded by woods.
