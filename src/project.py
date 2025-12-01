@@ -11,6 +11,9 @@ def main():
     background = pygame.image.load ("waterfall_bg.png")
 
     # make custom platform base
+    platform_img = pygame.image.load("waterfall_floor.png")
+    platform_x = 200
+    platform_y = 450
     platform = pygame.Rect (200, 450, 300, 30)
 
     #basic platforms for the player to jump to
@@ -26,6 +29,7 @@ def main():
                 running = False
          #game logic
         screen.blit(background, (0,0))
+        screen.blit(platform_img, platform_x, platform_y)
         pygame.draw.rect(screen, (150,75,0), platform)
         pygame.display.flip()
     pygame.quit()
