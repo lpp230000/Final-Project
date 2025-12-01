@@ -12,6 +12,7 @@ def main():
 
     # make custom platform base
     platform_img = pygame.image.load("waterfall_floor.png")
+    platform_img = pygame.transform.scale(platform_img, (330,30))
     platform_x = 200
     platform_y = 450
 
