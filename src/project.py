@@ -4,7 +4,7 @@ import pygame
 def main():
     pygame.init()
     pygame.display.set_caption("Waterfall")
-    resolution = (800,600)
+    resolution = (1000,800)
     screen = pygame.display.set_mode(resolution)
 
     #making screen custom background
