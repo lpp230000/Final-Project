@@ -12,9 +12,10 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-                #game logic
-                screen.fill('Green')
-                pygame.display.flip()
+         #game logic
+        screen.fill('Green')
+        pygame.display.flip()
+    pygame.quit()
 
 
 if __name__ == "__main__":
