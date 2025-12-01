@@ -8,7 +8,7 @@ def main():
     screen = pygame.display.set_mode(resolution)
 
     running = True
-    while running in pygame.event.get():
+    while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
