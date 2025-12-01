@@ -11,7 +11,11 @@ def main():
     background = pygame.image.load ("waterfall_bg.png")
 
     #drawn platform
-    platform = pygame.Rect (200, 450, 300, 30)
+    platform_height = 30
+    platform = pygame.Rect (0,
+     resolution[1] - platform_height, 
+     resolution[0], platform_height
+     )
 
     #basic platforms for the player to jump to
 
