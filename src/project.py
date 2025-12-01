@@ -9,9 +9,9 @@ def main():
 
     #making screen custom background
     background = pygame.image.load ("waterfall_bg.png")
-    background = pygame.transform.scale (background, resolution)
 
     # make custom platform base
+    platform_img = pygame.image.load("waterfall_floor.png")
 
     #basic platforms for the player to jump to
 
