@@ -26,7 +26,7 @@ def main():
                 running = False
          #game logic
         screen.blit(background, (0,0))
-        screen.draw.rect(screen, (150,75,0), platform)
+        pygame.draw.rect(screen, (150,75,0), platform)
         pygame.display.flip()
     pygame.quit()
 
