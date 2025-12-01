@@ -16,6 +16,9 @@ def main():
      resolution[1] - platform_height, 
      resolution[0], platform_height
      )
+    
+    #obstacle platforms
+    
 
     #basic platforms for the player to jump to
 
