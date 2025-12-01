@@ -11,6 +11,14 @@ def main():
     background = pygame.image.load ("waterfall_bg.png")
     background = pygame.transform.scale (background, resolution)
 
+    # make custom platform base
+
+    #basic platforms for the player to jump to
+
+    #character image
+
+    # possibly add digital rain for raining effect
+
     running = True
     while running:
         for event in pygame.event.get():
