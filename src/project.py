@@ -26,7 +26,7 @@ def main():
         x = random.randint(0, resolution[0] - width)
         y = random.randint(100, 700)
         new_platforms = pygame.Rect(x, y, width, height)
-        platform.append(new_platforms)
+        platforms.append(new_platforms)
 
     #basic platforms for the player to jump to
 
