@@ -28,8 +28,6 @@ def main():
         new_platforms = pygame.Rect(x, y, width, height)
         platforms.append(new_platforms)
 
-    #basic platforms for the player to jump to
-
     #character image
     player = pygame.Rect(500, 600, 40 ,50)
     player_speed = 6
@@ -58,7 +56,8 @@ def main():
         #stops charact from floating (gravity)
         y_velocity += gravity
         player.y += y_velocity
-        if player.colliderect(platform):
+        # Ground Collision
+        if player.colliderect(platform) and y_velocity >= 0:
             player.y = platform.y - player.height
             y_velocity = 0
             ground = True
