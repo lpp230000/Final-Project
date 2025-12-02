@@ -38,7 +38,7 @@ def main():
     on_ground = False
 
     player_img = pygame.image.load("waterfall_ball.png").convert_alpha()
-    player_img = pygame.transform.scale(player_img, (300, 300))
+    player_img = pygame.transform.scale(player_img, (300, 330))
     running = True
     while running:
         for event in pygame.event.get():
