@@ -29,7 +29,7 @@ def main():
         platforms.append(new_platforms)
 
     #character image
-    player = pygame.Rect(500, 600, 40 ,50)
+    player = pygame.Rect(500, 600, 150 ,100)
     player_speed = 6
     gravity = 0.5
     y_velocity = 0
@@ -50,7 +50,7 @@ def main():
         if keys[pygame.K_RIGHT]:
             player.x += player_speed
         #Jumping movement
-        if keys[pygame.K_SPACE]:
+        if keys[pygame.K_SPACE] and ground:
             y_velocity = -12
             ground = False
         #stops charact from floating (gravity)
