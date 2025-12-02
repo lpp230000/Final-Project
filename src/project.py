@@ -44,6 +44,18 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+        #setting keyboard controls
+        keys = pygame.key.get_pressed()
+        #Left/Right movement
+        if keys[pygame.K_LEFT]:
+            player.x += player_speed
+        if keys[pygame.K_RIGHT]:
+            player.x += player_speed
+        #Jumping movement
+        if keys[pygame.K_SPACE]:
+            y_velocity = -12
+            on_ground = False
+
          #game logic
         screen.blit(background, (0,0))
         pygame.draw.rect(screen, (150,75,0), platform)
