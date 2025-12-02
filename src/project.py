@@ -48,7 +48,7 @@ def main():
         keys = pygame.key.get_pressed()
         #Left/Right movement
         if keys[pygame.K_LEFT]:
-            player.x += player_speed
+            player.x -= player_speed
         if keys[pygame.K_RIGHT]:
             player.x += player_speed
         #Jumping movement
