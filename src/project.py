@@ -26,7 +26,7 @@ class Player():
         if keys[pygame.K_LEFT]:
             self.rect.x -= self.speed
         if keys[pygame.K_RIGHT]:
-            self.rectect.x += self.speed
+            self.rect.x += self.speed
 
         #Jumping movement
         if keys[pygame.K_SPACE] and self.ground:
@@ -43,60 +43,57 @@ class Player():
                 self.ground = True
     
     def draw (self, screen):
-        screen.blit(self.image, (self.rect.x, self.rect.y))
+        screen.blit(self.img, (self.rect.x, self.rect.y))
 
 def main():
-    def __init__(self):
-        pygame.init()
-        pygame.display.set_caption("Waterfall")
+    pygame.init()
+    pygame.display.set_caption("Waterfall")
 
-        self.resolution = (1000,800)
-        self.screen = pygame.display.set_mode(self.resolution)
+    resolution = (1000,800)
+    screen = pygame.display.set_mode(resolution)
 
-        #making screen custom background
-        self.background = pygame.image.load ("waterfall_bg.png")
+    #making screen custom background
+    background = pygame.image.load ("waterfall_bg.png")
 
-        #Ground platform
-        platform_height = 30
-        ground = Platform(0,
-        self.resolution[1] - platform_height, 
-        self.resolution[0], platform_height,
-        (150, 75, 0)
-        )
+    #Ground platform
+    platform_height = 30
+    ground = Platform(0,
+    resolution[1] - platform_height, 
+    resolution[0], platform_height,
+    (150, 75, 0)
+    )
         
-        #obstacle platforms
-        self.platforms =[ground]
-        num_of_platforms = 10
-        for i in range(num_of_platforms):
-            width = random.randint(80, 200)
-            height = 20
-            x = random.randint(0, self.resolution[0] - width)
-            y = random.randint(100, 700)
-            self.platforms.append(Platform(x, y, width, height, (255, 255, 255)))
+    #obstacle platforms
+    platforms =[ground]
+    num_of_platforms = 10
+    for i in range(num_of_platforms):
+        width = random.randint(80, 200)
+        height = 20
+        x = random.randint(0, resolution[0] - width)
+        y = random.randint(100, 700)
+        platforms.append(Platform(x, y, width, height, (255, 255, 255)))
 
-            #Player
-            self.player = Player(500, 600)
-            self.running = True
+        #Player
+        player = Player(500, 600)
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
 
-        def run(self):
-            while running:
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        running = False
+            #setting keyboard controls
+            keys = pygame.key.get_pressed()
+            player.update(keys, platforms)
+            #game logic
+            screen.blit(background, (0,0))
 
-                #setting keyboard controls
-                keys = pygame.key.get_pressed()
-                self.player.update(keys, self.platforms)
-                #game logic
-                self.screen.blit(self.background, (0,0))
-
-                for p in self.platforms:
-                    p.draw(self.screen)
+            for p in platforms:
+                p.draw(screen)
                 
-                self.player.draw(self.screen)
+            player.draw(screen)
 
-                pygame.display.flip()
-                
+            pygame.display.flip()
+
         pygame.quit()
 
 
