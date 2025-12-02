@@ -18,15 +18,15 @@ def main():
      )
     
     #obstacle platforms
-    platforms =[]
+    platform =[]
     numofplatforms = 5
     for platforms in range(numofplatforms):
         width = random.randint(80, 200)
         height = 20
-        x = random.randint(0, resolution)
+        x = random.randint(0, resolution[0] - width)
         y = random.randint(100, 700)
         new_platforms = pygame.Rect(x, y, width, height)
-        platforms.append(new_platforms)
+        platform.append(new_platforms)
 
     #basic platforms for the player to jump to
 
@@ -42,6 +42,7 @@ def main():
          #game logic
         screen.blit(background, (0,0))
         pygame.draw.rect(screen, (150,75,0), platform)
+    
         pygame.display.flip()
     pygame.quit()
 
