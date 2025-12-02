@@ -35,7 +35,7 @@ def main():
     player_speed = 6
     gravity = 0.5
     y_velocity = 0
-    on_ground = False
+    ground = False
 
     player_img = pygame.image.load("waterfall_ball.png").convert_alpha()
     player_img = pygame.transform.scale(player_img, (150, 100))
@@ -54,9 +54,14 @@ def main():
         #Jumping movement
         if keys[pygame.K_SPACE]:
             y_velocity = -12
-            on_ground = False
+            ground = False
+        #stops charact from floating (gravity)
         y_velocity += gravity
         player.y += y_velocity
+        if player.colliderect(platform):
+            player.y = platform.y - player.height
+            y_velocity = 0
+            ground = True
 
          #game logic
         screen.blit(background, (0,0))
