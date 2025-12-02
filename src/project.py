@@ -19,8 +19,8 @@ def main():
     
     #obstacle platforms
     platforms =[]
-    numofplatforms = 5
-    for platforms in range(numofplatforms):
+    num_of_platforms = 5
+    for i in range(num_of_platforms):
         width = random.randint(80, 200)
         height = 20
         x = random.randint(0, resolution[0] - width)
