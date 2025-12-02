@@ -31,9 +31,14 @@ def main():
     #basic platforms for the player to jump to
 
     #character image
+    player = pygame.Rect(500, 600, 40 ,50)
+    player_speed = 6
+    gravity = 0.5
+    y_velocity = 0
+    on_ground = False
 
-    # possibly add digital rain for raining effect
-
+    player_img = pygame.image.load("waterfall_ball.png").convert_alpha()
+    player_img = pygame.transform.scale(player_img, (300, 300))
     running = True
     while running:
         for event in pygame.event.get():
@@ -44,6 +49,7 @@ def main():
         pygame.draw.rect(screen, (150,75,0), platform)
         for p in platforms:
             pygame.draw.rect(screen, (255,255,255), p)
+        screen.blit(player_img, (player.x, player.y))
     
         pygame.display.flip()
     pygame.quit()
