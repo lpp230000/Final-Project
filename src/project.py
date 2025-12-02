@@ -65,7 +65,7 @@ def main():
         
     #obstacle platforms
     platforms =[ground]
-    num_of_platforms = 10
+    num_of_platforms = 6
     for i in range(num_of_platforms):
         width = random.randint(80, 200)
         height = 20
@@ -74,27 +74,27 @@ def main():
         platforms.append(Platform(x, y, width, height, (255, 255, 255)))
 
         #Player
-        player = Player(500, 600)
-        running = True
-        while running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
+    player = Player(500, 600)
 
-            #setting keyboard controls
-            keys = pygame.key.get_pressed()
-            player.update(keys, platforms)
-            #game logic
-            screen.blit(background, (0,0))
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
-            for p in platforms:
-                p.draw(screen)
-                
-            player.draw(screen)
+        #setting keyboard controls
+        keys = pygame.key.get_pressed()
+        
+        player.update(keys, platforms)
 
-            pygame.display.flip()
+        screen.blit(background, (0,0))
+        for p in platforms:
+             p.draw(screen)     
+        player.draw(screen)
 
-        pygame.quit()
+        pygame.display.flip()
+
+    pygame.quit()
 
 
 if __name__ == "__main__":
