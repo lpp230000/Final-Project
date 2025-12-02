@@ -18,7 +18,7 @@ def main():
      )
     
     #obstacle platforms
-    platform =[]
+    platforms =[]
     numofplatforms = 5
     for platforms in range(numofplatforms):
         width = random.randint(80, 200)
@@ -42,6 +42,8 @@ def main():
          #game logic
         screen.blit(background, (0,0))
         pygame.draw.rect(screen, (150,75,0), platform)
+        for p in platforms:
+            pygame.draw.rect(screen, (255,255,255), p)
     
         pygame.display.flip()
     pygame.quit()
