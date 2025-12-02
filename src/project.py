@@ -55,6 +55,8 @@ def main():
         if keys[pygame.K_SPACE]:
             y_velocity = -12
             on_ground = False
+        y_velocity += gravity
+        player.y += y_velocity
 
          #game logic
         screen.blit(background, (0,0))
