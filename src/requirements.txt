@@ -1,0 +1,2 @@
+## Requirented pip installments
+Please install pip py game and random
