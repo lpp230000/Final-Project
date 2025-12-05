@@ -18,7 +18,13 @@ class Particle():
             self.dead = True
         self.alpha = 255 * (1 - (self.age / self.life))
     
-    
+    def update_surface(self):
+        surf = pygame.Surface((self.size, self.size), pygame.SRCALPHA)
+        pygame.draw.circle(
+            surf, self.color,
+            (self.size // 2, self.size // 2), self.size // 2
+        )
+        return surf
 
 class ParticleTrail():
     def __init__(self):
