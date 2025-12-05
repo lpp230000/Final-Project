@@ -12,6 +12,14 @@ class Particle():
         self.alpha = 255
         self.surface = self.update_surface()
 
+    def update(self, dt):
+        self.age += dt
+        if self.age > self.life:
+            self.dead = True
+        self.alpha = 255 * (1 - (self.age / self.life))
+    
+    
+
 class ParticleTrail():
     def __init__(self):
         pass
