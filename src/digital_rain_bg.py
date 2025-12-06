@@ -20,11 +20,15 @@ class Particle():
     
     def update_surface(self):
         surf = pygame.Surface((self.size, self.size), pygame.SRCALPHA)
-        pygame.draw.circle(
-            surf, self.color,
-            (self.size // 2, self.size // 2), self.size // 2
-        )
+        length = self.size + 2
+        width = 3
+        pygame.draw.rect(surf, self.color, (0, 0, width, length))
         return surf
+        
+    def draw(self, surface):
+        if self.dead:
+            return
+        self.surface.set_alpha(self.alpha)
 
 class ParticleTrail():
     def __init__(self):
