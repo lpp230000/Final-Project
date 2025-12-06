@@ -1,6 +1,6 @@
 import pygame
 import random
-import digital_rain_bg
+from digital_rain_bg import Rain
 
 class Platform():
     def __init__(self, x, y, width, height, color=(255,255,255)):
@@ -37,7 +37,7 @@ class Player():
         #stops charact from floating (gravity)
         self.y_velocity += self.gravity
         self.rect.y += self.y_velocity
-        
+
         # Ground Collision
         for p in platforms:
             if self.rect.colliderect(p.rect) and self.y_velocity >= 0:
@@ -58,7 +58,7 @@ def main():
     clock = pygame.time.Clock()
 
     #making screen custom background
-    digital_rain_bg.init(resolution, amount=120)
+    digital_rain = Rain(resolution, amount=120)
 
     #Ground platform
     platform_height = 30
@@ -96,10 +96,10 @@ def main():
         keys = pygame.key.get_pressed()
         player.update(keys, platforms)
 
-        digital_rain_bg.update(dt)
+        digital_rain.update(dt)
 
         screen.fill((0,0))
-        digital_rain_bg.draw(screen)
+        digital_rain.draw(screen)
         for p in platforms:
              p.draw(screen)     
         player.draw(screen)
