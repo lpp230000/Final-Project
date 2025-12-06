@@ -29,6 +29,7 @@ class Particle():
         if self.dead:
             return
         self.surface.set_alpha(self.alpha)
+        surface.blit(self.surface, self.pos)
 
 class ParticleTrail():
     def __init__(self, pos, size, life):
