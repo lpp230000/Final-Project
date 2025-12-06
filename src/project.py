@@ -55,7 +55,7 @@ def main():
     resolution = (1000,800)
     screen = pygame.display.set_mode(resolution)
 
-    player_img = pygame.image.load("waterfall.ball.png").convert_alpha()
+    player_img = pygame.image.load("waterfall_ball.png").convert_alpha()
     player = Player(500, 600, player_img)
 
     clock = pygame.time.Clock()
@@ -100,7 +100,7 @@ def main():
 
         screen.fill((0, 0, 0))
         digital_rain.draw(screen)
-        
+
         for p in platforms:
              p.draw(screen)     
         player.draw(screen)
