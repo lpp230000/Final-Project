@@ -1,6 +1,6 @@
 import pygame
 import random
-from digital_rain_bg import Rain
+import digital_rain_bg
 
 class Platform():
     def __init__(self, x, y, width, height, color=(255,255,255)):
@@ -58,7 +58,7 @@ def main():
     clock = pygame.time.Clock()
 
     #making screen custom background
-    digital_rain = Rain(resolution, amount=120)
+    digital_rain = digital_rain_bg(resolution, amount=120)
 
     #Ground platform
     platform_height = 30
@@ -96,10 +96,10 @@ def main():
         keys = pygame.key.get_pressed()
         player.update(keys, platforms)
 
-        digital_rain.update(dt)
+        digital_rain_bg.update(dt)
 
         screen.fill((0,0))
-        digital_rain.draw(screen)
+        digital_rain_bg.draw(screen)
         for p in platforms:
              p.draw(screen)     
         player.draw(screen)
