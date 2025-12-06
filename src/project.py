@@ -33,6 +33,7 @@ class Player():
         if keys[pygame.K_SPACE] and self.ground:
             self.y_velocity = -12
             self.ground = False
+
         #stops charact from floating (gravity)
         self.y_velocity += self.gravity
         self.rect.y += self.y_velocity
@@ -44,7 +45,7 @@ class Player():
                 self.ground = True
     
     def draw (self, screen):
-        screen.blit(self.img, (self.rect.x, self.rect.y))
+        screen.blit(self.img, self.rect)
 
 def main():
     pygame.init()
@@ -53,8 +54,10 @@ def main():
     resolution = (1000,800)
     screen = pygame.display.set_mode(resolution)
 
+    clock = pygame.time.Clock()
+
     #making screen custom background
-    background = pygame.image.load ("waterfall_bg.png")
+    digital_rain_bg.init(resolution, amount=120)
 
     #Ground platform
     platform_height = 30
@@ -79,6 +82,7 @@ def main():
 
     running = True
     while running:
+        dt = clock.tick(60)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -90,8 +94,10 @@ def main():
         keys = pygame.key.get_pressed()
         
         player.update(keys, platforms)
+        digital_rain_bg.update(dt)
 
-        screen.blit(background, (0,0))
+        screen.fill((0,0))
+        digital_rain_bg.draw(screen)
         for p in platforms:
              p.draw(screen)     
         player.draw(screen)
