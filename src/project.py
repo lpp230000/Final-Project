@@ -83,6 +83,7 @@ def main():
     running = True
     while running:
         dt = clock.tick(60)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -92,8 +93,8 @@ def main():
 
         #setting keyboard controls
         keys = pygame.key.get_pressed()
-        
         player.update(keys, platforms)
+
         digital_rain_bg.update(dt)
 
         screen.fill((0,0))
