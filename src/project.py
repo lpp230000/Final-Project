@@ -18,11 +18,11 @@ class Player():
         self.gravity = 0.5
         self.y_velocity = 0
         self.ground = False
+
         self.img = pygame.image.load("waterfall_ball.png").convert_alpha()
         self.img = pygame.transform.scale(self.img, (150, 100))
 
     def update (self, keys, platforms):
-        
         #Left/Right movement
         if keys[pygame.K_LEFT]:
             self.rect.x -= self.speed
@@ -37,6 +37,7 @@ class Player():
         #stops charact from floating (gravity)
         self.y_velocity += self.gravity
         self.rect.y += self.y_velocity
+        
         # Ground Collision
         for p in platforms:
             if self.rect.colliderect(p.rect) and self.y_velocity >= 0:
