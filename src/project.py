@@ -11,15 +11,15 @@ class Platform():
         pygame.draw.rect(screen, self.color, self.rect)
 
 class Player():
-    def __init__(self, x, y):
+    def __init__(self, x, y, image):
         #character image
-        self.rect = pygame.Rect(500, 600, 150 ,100)
+        self.rect = pygame.Rect(x, y, 150 ,100)
         self.speed = 6
         self.gravity = 0.5
         self.y_velocity = 0
         self.ground = False
 
-        self.img = pygame.image.load("waterfall_ball.png").convert_alpha()
+        self.img = image
         self.img = pygame.transform.scale(self.img, (150, 100))
 
     def update (self, keys, platforms):
@@ -55,6 +55,9 @@ def main():
     resolution = (1000,800)
     screen = pygame.display.set_mode(resolution)
 
+    player_img = pygame.image.load("waterfall.ball.png").convert_alpha()
+    player = Player(500, 600, player_img)
+
     clock = pygame.time.Clock()
 
     #making screen custom background
@@ -78,9 +81,6 @@ def main():
         y = random.randint(100, 700)
         platforms.append(Platform(x, y, width, height, (255, 255, 255)))
 
-        #Player
-    player = Player(500, 600)
-
     running = True
     while running:
         dt = clock.tick(60)
@@ -98,7 +98,9 @@ def main():
 
         digital_rain.update(dt)
 
+        screen.fill((0, 0, 0))
         digital_rain.draw(screen)
+        
         for p in platforms:
              p.draw(screen)     
         player.draw(screen)
