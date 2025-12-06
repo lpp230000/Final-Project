@@ -2,7 +2,7 @@ import pygame
 import random
 
 class Particle():
-    def __init__(self, pos= (0,0), size=15, life=1000, color=(173,216,230)):
+    def __init__(self, pos= (0,0), size=15, life=1000, color=(100,149,255)):
         self.pos = pos
         self.size = size
         self.color = color
