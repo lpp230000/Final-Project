@@ -95,6 +95,27 @@ class Rain():
 def main():
     pygame.init()
     pygame.display.set_caption("Digital Rain Waterfall")
+    clock = pygame.time.Clock()
+    dt = 0
+    resolution = (1000, 800)
+    screen = pygame.image.load ("waterfall_bg.png")
+    rain = Rain(resolution)
+    #Game loop (Rain Loop, allowing for the loop to run)
+    running = True
+    while running:
+        #Event Loop
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+        #Game Logic
+        rain.update(dt)
+        #Render & Display
+        rain.draw(screen)
+        #flips to editing display
+        pygame.display.flip()
+        #print(particle.age)
+        dt = clock.tick(12)
+    pygame.quit()
 
 if __name__ =="__main__":
     main()
