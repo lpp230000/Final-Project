@@ -58,7 +58,7 @@ def main():
     clock = pygame.time.Clock()
 
     #making screen custom background
-    digital_rain = digital_rain_bg(resolution, amount=120)
+    digital_rain = digital_rain_bg.main()
 
     #Ground platform
     platform_height = 30
@@ -96,10 +96,9 @@ def main():
         keys = pygame.key.get_pressed()
         player.update(keys, platforms)
 
-        digital_rain_bg.update(dt)
+        digital_rain.update(dt)
 
-        screen.fill((0,0))
-        digital_rain_bg.draw(screen)
+        digital_rain.draw(screen)
         for p in platforms:
              p.draw(screen)     
         player.draw(screen)
