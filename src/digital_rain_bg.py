@@ -31,8 +31,32 @@ class Particle():
         self.surface.set_alpha(self.alpha)
 
 class ParticleTrail():
-    def __init__(self):
-        pass
+    def __init__(self, pos, size, life):
+        self.pos =pos
+        self.size = size
+        self.life = life
+        self.particles=[]
+
+    def update(self, dt):
+        particle = Particle(self.pos, size=self.size, life=self.life)
+        self.particles.insert(0, particle)
+        self._update_particles(dt)
+        self._update_pos()
+
+    def _update_particles(self, dt):
+        for idx, particle in enumerate(self.particles):
+            particle.update(dt)
+            if particle.dead:
+                del self.particles[idx]
+
+    def _update_pos(self):
+        x, y = self.pos
+        y += self.size
+        self.pos = (x, y)
+
+    def draw(self, surface):
+        for particle in self.particles:
+            particle.draw(surface)
 
 class Rain():
     def __init__(self):
