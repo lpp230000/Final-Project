@@ -98,7 +98,8 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
     resolution = (1000, 800)
-    screen = pygame.image.load ("waterfall_bg.png")
+    screen = pygame.display.set_mode(resolution)
+    background = pygame.image.load ("waterfall_bg.png")
     rain = Rain(resolution)
     #Game loop (Rain Loop, allowing for the loop to run)
     running = True
@@ -110,6 +111,7 @@ def main():
         #Game Logic
         rain.update(dt)
         #Render & Display
+        screen.blit(background,(0, 0))
         rain.draw(screen)
         #flips to editing display
         pygame.display.flip()
