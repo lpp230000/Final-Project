@@ -1,5 +1,6 @@
 import pygame
 import random
+import digital_rain_bg
 
 class Platform():
     def __init__(self, x, y, width, height, color=(255,255,255)):
