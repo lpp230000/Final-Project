@@ -59,8 +59,38 @@ class ParticleTrail():
             particle.draw(surface)
 
 class Rain():
-    def __init__(self):
-        pass
+    def __init__(self, screen_res):
+        self.screen_res = screen_res
+        self.particle_size = 15
+        self.birth_rate = 1 #trails per frame
+        self.trails = []
+
+    def update(self, dt):
+        self._birth_new_trails()
+        self._update_trails(dt)
+
+    def _update_trails(self, dt):
+        for idx, trail in enumerate (self.trails):
+            trail.update(dt)
+            if self._trail_is_offscreen(trail):
+                del self.trails[idx]
+
+    def _trail_is_offscreen(self, trail):
+        trail_is_offscreen = trail.particles[-1].pos[1] > self.screen_res[1]
+        return trail_is_offscreen
+
+    def _birth_new_trails(self):
+        for count in range(self.birth_rate):
+            screen_width = self.screen_res[0]
+            x = random.randrange(0, screen_width, self.particle_size)
+            pos = (x, 0)
+            life = random.randrange(500, 3000)
+            trail = ParticleTrail(pos, self.particle_size, life)
+            self.trails.insert(0, trail)
+    
+    def draw(self, surface):
+        for trail in self.trails:
+            trail.draw(surface)
 
 def main():
     pygame.init()
