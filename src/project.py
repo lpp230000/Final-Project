@@ -54,6 +54,7 @@ def main():
 
     resolution = (1000,800)
     screen = pygame.display.set_mode(resolution)
+    background_img = pygame.image.load("waterfall_bg.png").convert()
 
     player_img = pygame.image.load("waterfall_ball.png").convert_alpha()
     player = Player(500, 600, player_img)
@@ -98,11 +99,12 @@ def main():
 
         digital_rain.update(dt)
 
-        screen.fill((0, 0, 0))
+        screen.blit(background_img, (0, 0))
         digital_rain.draw(screen)
 
         for p in platforms:
-             p.draw(screen)     
+             p.draw(screen)  
+
         player.draw(screen)
 
         pygame.display.flip()
