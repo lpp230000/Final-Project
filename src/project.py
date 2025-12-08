@@ -13,7 +13,7 @@ class Platform():
 class Player():
     def __init__(self, x, y, image):
         #character image
-        self.rect = pygame.Rect(x, y, 150 ,100)
+        self.rect = pygame.Rect(x, y, 65 ,50)
         self.speed = 6
         self.gravity = 0.5
         self.y_velocity = 0
@@ -23,7 +23,7 @@ class Player():
         self.jumps_left = self.max_jumps
 
         self.img = image
-        self.img = pygame.transform.scale(self.img, (150, 100))
+        self.img = pygame.transform.scale(self.img, (65, 50))
 
     def jump (self):
         if self.jumps_left > 0:
