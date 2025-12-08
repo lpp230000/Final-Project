@@ -52,7 +52,7 @@ class ParticleTrail():
 
     def _update_pos(self):
         x, y = self.pos
-        y += self.size
+        y += 5
         self.pos = (x, y)
 
     def draw(self, surface):
@@ -85,7 +85,7 @@ class Rain():
             screen_width = self.screen_res[0]
             x = random.randrange(0, screen_width, self.particle_size)
             pos = (x, 0)
-            life = random.randrange(500, 3000)
+            life = random.randrange(300, 600)
             trail = ParticleTrail(pos, self.particle_size, life)
             self.trails.insert(0, trail)
     
