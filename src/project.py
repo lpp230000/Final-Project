@@ -19,8 +19,17 @@ class Player():
         self.y_velocity = 0
         self.ground = False
 
+        self.max_jumps = 2
+        self.jumps_left = self.max_jumps
+
         self.img = image
         self.img = pygame.transform.scale(self.img, (150, 100))
+
+    def jump (self):
+        if self.jumps_left > 0:
+            self.y_velocity = -12
+            self.ground = False
+            self.jumps_left -= 1
 
     def update (self, keys, platforms):
         #Left/Right movement
@@ -44,6 +53,7 @@ class Player():
                 self.rect.y = p.rect.y - self.rect.height
                 self.y_velocity = 0
                 self.ground = True
+                self.jumps_left = self.max_jumps
     
     def draw (self, screen):
         screen.blit(self.img, self.rect)
@@ -92,6 +102,8 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     running = False
+                if event.key == pygame.K_SPACE:
+                    player.jump()
 
         #setting keyboard controls
         keys = pygame.key.get_pressed()
