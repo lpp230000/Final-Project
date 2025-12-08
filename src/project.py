@@ -85,11 +85,21 @@ def main():
     #obstacle platforms
     platforms =[ground]
     num_of_platforms = 6
+
     for i in range(num_of_platforms):
-        width = random.randint(80, 200)
-        height = 20
-        x = random.randint(0, resolution[0] - width)
-        y = random.randint(100, 700)
+        overlap = True
+        while overlap:
+            width = random.randint(80, 200)
+            height = 20
+            x = random.randint(0, resolution[0] - width)
+            y = random.randint(100, 700)
+            new_rect = pygame.Rect (x,y, width, height)
+            overlap = False
+            for existing_platforms in platforms:
+                if new_rect.colliderect(existing_platforms.rect):
+                    overlap = True
+                    break
+
         platforms.append(Platform(x, y, width, height, (255, 255, 255)))
 
     running = True
