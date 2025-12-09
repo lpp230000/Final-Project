@@ -10,6 +10,17 @@ class Platform():
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, self.rect)
 
+class Collectible():
+    def __init__(self, x, y,radius, value=1, color=(255,255,0)):
+        self.center_x = x
+        self.center_y = y
+        self.radius = radius
+        self.color = color
+        self.value = value
+        self.collected = False
+
+        self.rect = pygame.Rect(x - radius, y - radius, radius * 2, radius * 2)
+
 class Player():
     def __init__(self, x, y, image):
         #character image
