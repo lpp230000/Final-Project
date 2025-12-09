@@ -5,4 +5,4 @@ This project is a simple platform game where the orb, the player,can jump onto r
 ## Github Link
 [Final Project Repository](https://github.com/lpp230000/Final-Project).
 ## Project Video
-[Showcasing Project]()
+[Showcasing Project](https://youtu.be/XTsXrtNXwHM)
