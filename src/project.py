@@ -21,11 +21,11 @@ class Collectible():
 
         self.rect = pygame.Rect(x - radius, y - radius, radius * 2, radius * 2)
 
-        def draw(self, screen):
+    def draw(self, screen):
             if not self.collected:
                 pygame.draw.circle(screen, self.color, (self.center_x, self.center_y), self.radius)
 
-        def check_collection(self, player_rect):
+    def check_collection(self, player_rect):
             if not self.collected and self.rect.colliderect(player_rect):
                 self.collected = True
                 return self.value
@@ -153,11 +153,19 @@ def main():
 
         digital_rain.update(dt)
 
+        for item in collectibles:
+            score_gain = item.check_collection(player.rect)
+            if score_gain > 0:
+                print (f"Collected an item! Gained {score_gain} points.")
+
         screen.blit(background_img, (0, 0))
         digital_rain.draw(screen)
 
         for p in platforms:
              p.draw(screen)  
+
+        for item in collectibles:
+            item.draw(screen)
 
         player.draw(screen)
 
