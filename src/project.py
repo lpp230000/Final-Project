@@ -124,6 +124,16 @@ def main():
 
         platforms.append(Platform(x, y, width, height, (255, 255, 255)))
 
+        collectibles = []
+
+        collectibles.append(Collectible(150,750,10, value = 10))
+        collectibles.append(Collectible(resolution[0] - 150, 500,10, value = 10))
+
+        if len(platforms)> 1:
+            platform_rect = platforms[1].rect
+            collectibles.append(Collectible(platform_rect.centerx, platform_rect.y - 15,
+            10, value=10))
+
     running = True
     while running:
         dt = clock.tick(60)
