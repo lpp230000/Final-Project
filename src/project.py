@@ -31,7 +31,6 @@ class Collectible():
                 return self.value
             return 0
         
-
 class Player():
     def __init__(self, x, y, image):
         #character image
