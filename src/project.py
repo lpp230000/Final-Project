@@ -21,6 +21,17 @@ class Collectible():
 
         self.rect = pygame.Rect(x - radius, y - radius, radius * 2, radius * 2)
 
+        def draw(self, screen):
+            if not self.collected:
+                pygame.draw.circle(screen, self.color, (self.center_x, self.center_y), self.radius)
+
+        def check_collection(self, player_rect):
+            if not self.collected and self.rect.colliderect(player_rect):
+                self.collected = True
+                return self.value
+            return 0
+        
+
 class Player():
     def __init__(self, x, y, image):
         #character image
